@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/tittle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="#164277" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="Group"
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/group_info"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@id/tittle"
+        android:layout_margin="10dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/default_avatar" />
+
+        <TextView
+            android:id="@+id/groupTittle"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_below="@id/group_info"
+        android:layout_marginTop="25dp"
+        android:background="#4B9242" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="Members"
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/member_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/navBar"
+        android:layout_below="@id/subtitle"
+        android:layout_margin="20dp" />
+
+    <GridView
+        android:id="@id/navBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:numColumns="4"
+        android:stretchMode="columnWidth" >
+    </GridView>
+
+</RelativeLayout><!-- From: file:/Users/nelson/AndroidstudioProjects/Moses/moses/src/main/res/layout/group_view.xml -->

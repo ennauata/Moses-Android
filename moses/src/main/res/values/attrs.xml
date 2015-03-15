@@ -1,0 +1,10 @@
+<resources>
+
+    <declare-styleable name="GroupListItem">
+        <attr name="tittle" format="string" />
+        <attr name="balance" format="integer"/>
+        <attr name="value" format="string" />
+        <attr name="type" format="integer" />
+    </declare-styleable>
+
+</resources>
