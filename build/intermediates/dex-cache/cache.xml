@@ -2,53 +2,53 @@
 <items version="2" >
 
     <item
-        jar="/Users/nelson/AndroidstudioProjects/Moses/moses/build/intermediates/exploded-aar/Moses/facebookSDK/unspecified/libs/bolts-android-1.1.2.jar"
+        jar="/home/nelson/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
         jumboMode="false"
-        revision="21.1.2"
-        sha1="91c20388c9a45f62b5ed8fe0502bb76ff6251fc7">
-        <dex dex="/Users/nelson/AndroidstudioProjects/Moses/moses/build/intermediates/pre-dexed/debug/bolts-android-1.1.2-05b9346633084879a2ee6589b42ace049683f665.jar" />
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/home/nelson/AndroidStudioProjects/Moses/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-ac6fdbffbe7ecfdfa695a6e2a024ae0cef3aaf33.jar" />
     </item>
     <item
-        jar="/Users/nelson/AndroidstudioProjects/Moses/moses/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jar="/home/nelson/AndroidStudioProjects/Moses/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
         jumboMode="false"
-        revision="21.1.2"
-        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
-        <dex dex="/Users/nelson/AndroidstudioProjects/Moses/moses/build/intermediates/pre-dexed/debug/classes-9f73eab1e4490caccd686526a7c11953519b4ad3.jar" />
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/home/nelson/AndroidStudioProjects/Moses/app/build/intermediates/pre-dexed/debug/classes-bf5b273d81fe2e386be5edeb044cc07a12d2365a.jar" />
     </item>
     <item
-        jar="/Users/nelson/AndroidstudioProjects/Moses/moses/build/intermediates/exploded-aar/Moses/facebookSDK/unspecified/classes.jar"
+        jar="/home/nelson/AndroidStudioProjects/Moses/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
         jumboMode="false"
-        revision="21.1.2"
-        sha1="dd75e511d4dc613f44f8feeee0598c580a341f35">
-        <dex dex="/Users/nelson/AndroidstudioProjects/Moses/moses/build/intermediates/pre-dexed/debug/classes-d6f1319a43f31195e4a993fcf9968f91c920f45c.jar" />
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/home/nelson/AndroidStudioProjects/Moses/app/build/intermediates/pre-dexed/debug/classes-588c65deb80305813ffa19b5d00ec5ffa3afa18a.jar" />
     </item>
     <item
-        jar="/Users/nelson/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jar="/home/nelson/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
         jumboMode="false"
-        revision="21.1.2"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
-        <dex dex="/Users/nelson/AndroidstudioProjects/Moses/moses/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-9bb29736129f4dbaa09b76f0e759f7e5235b7b44.jar" />
+        revision="22.0.1"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/home/nelson/AndroidStudioProjects/Moses/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-544e5b190267f854a41712923e2cb465c1850027.jar" />
     </item>
     <item
-        jar="/Users/nelson/AndroidstudioProjects/Moses/moses/build/intermediates/exploded-aar/Moses/library/unspecified/classes.jar"
+        jar="/home/nelson/AndroidStudioProjects/Moses/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.1.0/jars/classes.jar"
         jumboMode="false"
-        revision="21.1.2"
-        sha1="e5262763e1b11248ae75fed07f89f9753146d8b2">
-        <dex dex="/Users/nelson/AndroidstudioProjects/Moses/moses/build/intermediates/pre-dexed/debug/classes-2403108f99ebb90db91da8c7f497ce1eeef35ac0.jar" />
+        revision="22.0.1"
+        sha1="a78bfd2ec508b123ee7c03f4006ba7996ef9a8dc">
+        <dex dex="/home/nelson/AndroidStudioProjects/Moses/app/build/intermediates/pre-dexed/debug/classes-66320e588b8c93151241a4beca21e67a6687c318.jar" />
     </item>
     <item
-        jar="/Users/nelson/AndroidstudioProjects/Moses/moses/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/classes.jar"
+        jar="/home/nelson/AndroidStudioProjects/Moses/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
         jumboMode="false"
-        revision="21.1.2"
-        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
-        <dex dex="/Users/nelson/AndroidstudioProjects/Moses/moses/build/intermediates/pre-dexed/debug/classes-4a5278f80d6a6b060b571c940b62057989097540.jar" />
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/home/nelson/AndroidStudioProjects/Moses/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-0467f80148b7ea75a1ac3c75b92c0189a55d8431.jar" />
     </item>
     <item
-        jar="/Users/nelson/AndroidstudioProjects/Moses/moses/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jar="/home/nelson/AndroidStudioProjects/Moses/app/build/intermediates/exploded-aar/Moses/ViewPageIndicator/unspecified/jars/classes.jar"
         jumboMode="false"
-        revision="21.1.2"
-        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
-        <dex dex="/Users/nelson/AndroidstudioProjects/Moses/moses/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-b535e16164c4161973e8532c2aa0d41bcd52f4d5.jar" />
+        revision="22.0.1"
+        sha1="8ac3f2a5eea893c753b1e62011fe3f3c094d0e9e">
+        <dex dex="/home/nelson/AndroidStudioProjects/Moses/app/build/intermediates/pre-dexed/debug/classes-30e3e939b2bd3a661478aec47a427b2262f446fa.jar" />
     </item>
 
 </items>

@@ -1,3 +1,2 @@
-include ':facebookSDK'
-include ':library'
-include ':moses'
+include ':app'
+include ':ViewPageIndicator'

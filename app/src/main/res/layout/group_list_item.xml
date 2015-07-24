@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="horizontal">
+
+    <com.moses.Custom.GroupListItem
+        android:id="@+id/customView"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        custom:balance="1"
+        custom:tittle="Unknown Group"
+        custom:type="0"
+        custom:value="$0.0" />
+
+</LinearLayout>
