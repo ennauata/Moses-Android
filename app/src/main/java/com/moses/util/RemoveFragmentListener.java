@@ -1,4 +1,4 @@
-package com.moses.moses.Moses.Utils;
+package com.moses.util;
 
 public interface RemoveFragmentListener {
     void onFragmentSuicide();

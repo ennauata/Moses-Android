@@ -1,4 +1,4 @@
-package com.moses.moses.Moses.Moses;
+package com.moses.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,8 +18,10 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.moses.moses.Moses.Adapter.ImageAdapter;
-import com.moses.moses.Moses.DAO.UserDAO;
+import com.moses.adapter.ImageAdapter;
+import com.moses.model.User;
+import com.moses.rest.RestClient;
+import com.moses.rest.service.MosesApiService;
 import com.moses.moses.R;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
@@ -29,11 +31,17 @@ import org.json.JSONObject;
 
 import java.util.Arrays;
 
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 
 public class LoginActivity extends FragmentActivity {
     CallbackManager callbackManager = null;
     private AccessTokenTracker accessTokenTracker = null;
     private AccessToken accessToken = null;
+    private MosesApiService mosesApi = RestClient.getApiService();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,16 +91,26 @@ public class LoginActivity extends FragmentActivity {
                                     GraphResponse response) {
 
                                 try {
-                                    // Fill up UserDAO
-                                    UserDAO.getInstance().setFacebook_id(object.getString("id"));
-                                    UserDAO.getInstance().setFull_name(object.getString("name"));
-                                    UserDAO.getInstance().setEmail(object.getString("email"));
-                                    UserDAO.getInstance().setFirst_name(object.getString("first_name"));
-                                    UserDAO.getInstance().setLocale(object.getString("locale"));
-                                    UserDAO.getInstance().setTimezone(object.getString("timezone"));
+                                    User user = new User();
+                                    user.setFacebookId(object.getString("id"));
+                                    user.setFirstName(object.getString("first_name"));
+                                    user.setFullName(object.getString("name"));
+                                    user.setEmail(object.getString("email"));
+                                    user.setLocale(object.getString("locale"));
+                                    user.setLocale(object.getString("timezone"));
 
                                     // Create User
+                                    mosesApi.createUser(user, new Callback<User>() {
+                                        @Override
+                                        public void success(User user, Response response) {
+                                            user.getEmail();
+                                        }
 
+                                        @Override
+                                        public void failure(RetrofitError error) {
+                                            error.getBody();
+                                        }
+                                    });
                                     // Switch screen
                                 } catch (JSONException e) {
                                     e.printStackTrace();

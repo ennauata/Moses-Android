@@ -1,4 +1,4 @@
-package com.moses.moses.Moses.Moses;
+package com.moses.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -6,14 +6,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
-public class PickerActivity extends FragmentActivity{
-	public static final Uri FRIEND_PICKER = Uri.parse("picker://friend");
-	//private FriendPickerFragment friendPickerFragment;
-	
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-	    super.onCreate(savedInstanceState);
-	    /*setContentView(R.layout.pickers);
+public class PickerActivity extends FragmentActivity {
+    public static final Uri FRIEND_PICKER = Uri.parse("picker://friend");
+    //private FriendPickerFragment friendPickerFragment;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        /*setContentView(R.layout.pickers);
 
 	    Bundle args = getIntent().getExtras();
 	    FragmentManager manager = getSupportFragmentManager();
@@ -58,31 +58,31 @@ public class PickerActivity extends FragmentActivity{
 	           .replace(R.id.picker_fragment, fragmentToShow)
 	           .commit();
 	           */
-	}
+    }
 
-	private void onError(Exception error) {
-	    onError(error.getLocalizedMessage(), false);
-	}
+    private void onError(Exception error) {
+        onError(error.getLocalizedMessage(), false);
+    }
 
-	private void onError(String error, final boolean finishActivity) {
-	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-	    builder.setTitle("Teste").
-	            setMessage(error).
-	            setPositiveButton("Teste2", 
-	               new DialogInterface.OnClickListener() {
-	                @Override
-	                public void onClick(DialogInterface dialogInterface, int i) {
-	                    if (finishActivity) {
-	                        finishActivity();
-	                    }
-	                }
-	            });
-	    builder.show();
-	}
-	
-	@Override
-	protected void onStart() {
-	    super.onStart();
+    private void onError(String error, final boolean finishActivity) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Teste").
+                setMessage(error).
+                setPositiveButton("Teste2",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                if (finishActivity) {
+                                    finishActivity();
+                                }
+                            }
+                        });
+        builder.show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 	    /*if (FRIEND_PICKER.equals(getIntent().getData())) {
 	        try {
 	            friendPickerFragment.loadData(false);
@@ -91,18 +91,18 @@ public class PickerActivity extends FragmentActivity{
 	        }
 	    }
 	    */
-	}
-	
-	
-	private void finishActivity() {
-		MosesApplication app = (MosesApplication) getApplication();
+    }
+
+
+    private void finishActivity() {
+        MosesApplication app = (MosesApplication) getApplication();
 		/*if (FRIEND_PICKER.equals(getIntent().getData())) {
 		    if (friendPickerFragment != null) {
 		        app.setSelectedUsers(friendPickerFragment.getSelection());
 		    }   
 		}
 		 */
-	    setResult(RESULT_OK, null);
-	    finish();
-	}
+        setResult(RESULT_OK, null);
+        finish();
+    }
 }
