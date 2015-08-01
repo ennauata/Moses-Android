@@ -10,13 +10,13 @@ import com.moses.rest.service.SessionAuthInterceptor;
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
 
-public class RestClient {
+public class MosesAPI {
     private static final String BASE_URL = "http://192.168.59.103:8000";
     private static MosesApiService mosesApiService;
     private String userName = "admin";
     private String password = "Moses765";
 
-    private RestClient() {
+    private MosesAPI() {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapterFactory(new MosesJsonAdapterFactory())
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
@@ -34,7 +34,7 @@ public class RestClient {
 
     public static MosesApiService getApiService() {
         if (mosesApiService == null) {
-            new RestClient();
+            new MosesAPI();
         }
         return mosesApiService;
     }

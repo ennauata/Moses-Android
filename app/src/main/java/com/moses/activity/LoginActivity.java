@@ -20,7 +20,7 @@ import com.moses.MosesApplication;
 import com.moses.R;
 import com.moses.adapter.ImageAdapter;
 import com.moses.model.User;
-import com.moses.rest.RestClient;
+import com.moses.rest.MosesAPI;
 import com.moses.rest.service.MosesApiService;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
@@ -51,7 +51,7 @@ public class LoginActivity extends FragmentActivity {
 
 
         //Setup facebook and moses APIs
-        mosesApi = RestClient.getApiService();
+        mosesApi = MosesAPI.getApiService();
         accessToken = mApplication.getFbAccessToken();
         callbackManager = mApplication.getCallbackManager();
 
