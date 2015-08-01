@@ -9,7 +9,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
 import com.moses.adapter.NavBarAdapter;
-import com.moses.moses.R;
+import com.moses.R;
 
 public class GroupViewActivity extends Activity {
     // Nav Bar icons

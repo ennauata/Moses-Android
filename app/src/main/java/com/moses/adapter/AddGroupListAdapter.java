@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.facebook.login.widget.ProfilePictureView;
 import com.moses.util.BaseListElement;
-import com.moses.moses.R;
+import com.moses.R;
 
 import java.util.List;
 

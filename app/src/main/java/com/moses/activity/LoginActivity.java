@@ -9,20 +9,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.moses.MosesApplication;
+import com.moses.R;
 import com.moses.adapter.ImageAdapter;
 import com.moses.model.User;
 import com.moses.rest.RestClient;
 import com.moses.rest.service.MosesApiService;
-import com.moses.moses.R;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
 
@@ -30,6 +29,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -37,18 +37,27 @@ import retrofit.client.Response;
 
 
 public class LoginActivity extends FragmentActivity {
-    CallbackManager callbackManager = null;
-    private AccessTokenTracker accessTokenTracker = null;
+    private CallbackManager callbackManager;
+    private MosesApiService mosesApi;
     private AccessToken accessToken = null;
-    private MosesApiService mosesApi = RestClient.getApiService();
+    private MosesApplication mApplication;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.activity_login);
+        mApplication = (MosesApplication) getApplication();
+
+
+        //Setup facebook and moses APIs
+        mosesApi = RestClient.getApiService();
+        accessToken = mApplication.getFbAccessToken();
+        callbackManager = mApplication.getCallbackManager();
+
+        if (accessToken != null) {
+            startMainActivity();
+        }
 
         // Setup page adapter
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
@@ -67,19 +76,6 @@ public class LoginActivity extends FragmentActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
 
-                // Track access token
-                accessTokenTracker = new AccessTokenTracker() {
-                    @Override
-                    protected void onCurrentAccessTokenChanged(
-                            AccessToken oldAccessToken,
-                            AccessToken currentAccessToken) {
-                        // Set the access token using
-                        // currentAccessToken when it's loaded or set.
-                        accessToken = currentAccessToken;
-                    }
-                };
-                // If the access token is available already assign it.
-                accessToken = AccessToken.getCurrentAccessToken();
 
                 // Request facebook info
                 GraphRequest request = GraphRequest.newMeRequest(
@@ -89,7 +85,6 @@ public class LoginActivity extends FragmentActivity {
                             public void onCompleted(
                                     JSONObject object,
                                     GraphResponse response) {
-
                                 try {
                                     User user = new User();
                                     user.setFacebookId(object.getString("id"));
@@ -97,21 +92,8 @@ public class LoginActivity extends FragmentActivity {
                                     user.setFullName(object.getString("name"));
                                     user.setEmail(object.getString("email"));
                                     user.setLocale(object.getString("locale"));
-                                    user.setLocale(object.getString("timezone"));
-
-                                    // Create User
-                                    mosesApi.createUser(user, new Callback<User>() {
-                                        @Override
-                                        public void success(User user, Response response) {
-                                            user.getEmail();
-                                        }
-
-                                        @Override
-                                        public void failure(RetrofitError error) {
-                                            error.getBody();
-                                        }
-                                    });
-                                    // Switch screen
+                                    user.setTimezone(object.getInt("timezone"));
+                                    setUpUser(user);
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -137,6 +119,46 @@ public class LoginActivity extends FragmentActivity {
 
     }
 
+    private void startMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void setUpUser(final User user) {
+        mosesApi.getUser(user.getFacebookId(), new Callback<List<User>>() {
+            @Override
+            public void success(List<User> users, Response response) {
+                if (users.size() == 0) {
+                    createUser(user);
+                } else {
+                    mApplication.setUser(users.get(0));
+                }
+                // Switch screen
+                startMainActivity();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
+    }
+
+    private void createUser(User user) {
+        // Create User
+        mosesApi.createUser(user, new Callback<User>() {
+            @Override
+            public void success(User user, Response response) {
+                mApplication.setUser(user);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                error.getBody();
+            }
+        });
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
@@ -160,7 +182,6 @@ public class LoginActivity extends FragmentActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

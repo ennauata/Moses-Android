@@ -2,6 +2,8 @@ package com.moses.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Group {
     private Integer id;
     private String name;
@@ -9,6 +11,7 @@ public class Group {
     @SerializedName("image")
     private String imageURL;
     private StatusEnum status;
+    private List<User> members;
 
     public Integer getId() {
         return id;
@@ -24,6 +27,18 @@ public class Group {
 
     public void setCreator(Integer creator) {
         this.creator = creator;
+    }
+
+    public Integer getCreator() {
+        return creator;
+    }
+
+    public List<User> getMembers() {
+        return members;
+    }
+
+    public void setMembers(List<User> members) {
+        this.members = members;
     }
 
     public String getName() {

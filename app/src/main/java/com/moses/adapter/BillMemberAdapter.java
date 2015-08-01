@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.moses.moses.R;
+import com.moses.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;

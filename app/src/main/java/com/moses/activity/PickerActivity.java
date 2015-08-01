@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
+import com.moses.MosesApplication;
+
 public class PickerActivity extends FragmentActivity {
     public static final Uri FRIEND_PICKER = Uri.parse("picker://friend");
     //private FriendPickerFragment friendPickerFragment;

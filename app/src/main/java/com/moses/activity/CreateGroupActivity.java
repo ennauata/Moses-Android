@@ -25,7 +25,7 @@ import android.widget.ListView;
 import com.moses.adapter.AddGroupListAdapter;
 import com.moses.adapter.NavBarAdapter;
 import com.moses.util.BaseListElement;
-import com.moses.moses.R;
+import com.moses.R;
 
 import org.json.JSONObject;
 

@@ -13,7 +13,7 @@ import android.widget.GridView;
 import android.widget.ListView;
 
 import com.moses.adapter.NavBarAdapter;
-import com.moses.moses.R;
+import com.moses.R;
 
 import org.json.JSONArray;
 

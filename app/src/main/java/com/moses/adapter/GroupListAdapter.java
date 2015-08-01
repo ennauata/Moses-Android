@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 
 import com.moses.custom.GroupListItem;
 import com.moses.model.Group;
-import com.moses.moses.R;
+import com.moses.R;
 
 import java.util.ArrayList;
 

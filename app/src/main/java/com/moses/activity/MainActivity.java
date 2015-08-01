@@ -14,7 +14,7 @@ import android.widget.ListView;
 import com.moses.adapter.GroupListAdapter;
 import com.moses.adapter.NavBarAdapter;
 import com.moses.adapter.StatsViewAdapter;
-import com.moses.moses.R;
+import com.moses.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

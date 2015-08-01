@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.moses.moses.R;
+import com.moses.R;
 
 public class ImageAdapter extends PagerAdapter {
     Context context;

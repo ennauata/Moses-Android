@@ -16,7 +16,7 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.moses.moses.R;
+import com.moses.R;
 
 public class GroupListItem extends View {
 

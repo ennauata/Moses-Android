@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.moses.model.Group;
-import com.moses.moses.R;
+import com.moses.R;
 
 import java.util.ArrayList;
 

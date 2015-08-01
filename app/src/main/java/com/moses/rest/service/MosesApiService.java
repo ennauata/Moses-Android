@@ -1,6 +1,7 @@
 package com.moses.rest.service;
 
 
+import com.moses.model.Currency;
 import com.moses.model.Group;
 import com.moses.model.User;
 
@@ -22,6 +23,17 @@ public interface MosesApiService {
     @POST("/createUser/")
     public void createUser(@Body User user, Callback<User> callback);
 
-    @GET("/listGroups")
+    @GET("/listGroups/")
     public void listGroups(Callback<List<Group>> callback);
+
+    @POST("/createGroup/")
+    public void createGroup(@Body Group group, Callback<Group> callback);
+
+    @GET("/listCurrencies/")
+    public void listCurrencies(Callback<List<Currency>> callback);
+
+    @POST("/createCurrency/")
+    public void createUser(@Body Currency currency, Callback<Currency> callback);
+
+
 }
