@@ -4,7 +4,6 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.moses.rest.service.MosesApiService;
-import com.moses.rest.service.MosesJsonAdapterFactory;
 import com.moses.rest.service.SessionAuthInterceptor;
 
 import retrofit.RestAdapter;
@@ -18,7 +17,6 @@ public class MosesAPI {
 
     private MosesAPI() {
         Gson gson = new GsonBuilder()
-                .registerTypeAdapterFactory(new MosesJsonAdapterFactory())
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create();
 

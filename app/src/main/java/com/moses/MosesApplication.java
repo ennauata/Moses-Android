@@ -44,9 +44,13 @@ public class MosesApplication extends Application {
     public AccessToken getFbAccessToken(){
         //Try to get an access token
         if(accessToken == null){
-            accessToken = AccessToken.getCurrentAccessToken();
+            this.accessToken = AccessToken.getCurrentAccessToken();
         }
         return this.accessToken;
+    }
+
+    public void setFbAccessToken(AccessToken accessToken){
+        this.accessToken = accessToken;
     }
 
     public CallbackManager getCallbackManager(){

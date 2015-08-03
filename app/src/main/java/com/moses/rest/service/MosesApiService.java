@@ -14,25 +14,25 @@ import retrofit.http.POST;
 import retrofit.http.Path;
 
 public interface MosesApiService {
-    @GET("/listUsers/")
+    @GET("/users/")
     public void listUsers(Callback<List<User>> callback);
 
-    @GET("/getUser/{facebook_id}/")
+    @GET("/users/{facebook_id}/")
     public void getUser(@Path("facebook_id") String facebookId, Callback<List<User>> callback);
 
-    @POST("/createUser/")
+    @POST("/users/")
     public void createUser(@Body User user, Callback<User> callback);
 
-    @GET("/listGroups/")
+    @GET("/groups/")
     public void listGroups(Callback<List<Group>> callback);
 
-    @POST("/createGroup/")
+    @POST("/groups/")
     public void createGroup(@Body Group group, Callback<Group> callback);
 
-    @GET("/listCurrencies/")
+    @GET("/currencies/")
     public void listCurrencies(Callback<List<Currency>> callback);
 
-    @POST("/createCurrency/")
+    @POST("/currencies/")
     public void createUser(@Body Currency currency, Callback<Currency> callback);
 
 

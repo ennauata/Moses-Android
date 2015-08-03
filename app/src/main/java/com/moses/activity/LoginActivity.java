@@ -56,14 +56,14 @@ public class LoginActivity extends FragmentActivity {
         callbackManager = mApplication.getCallbackManager();
 
         if (accessToken != null) {
-            startMainActivity();
+            getUserFromFb();
         }
 
         // Setup page adapter
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         ImageAdapter adapter = new ImageAdapter(getApplicationContext());
         viewPager.setAdapter(adapter);
-        PageIndicator mIndicator = (CirclePageIndicator) findViewById(R.id.indicator);
+        final PageIndicator mIndicator = (CirclePageIndicator) findViewById(R.id.indicator);
         mIndicator.setViewPager(viewPager);
 
         // Request Permissions
@@ -72,37 +72,10 @@ public class LoginActivity extends FragmentActivity {
 
         // Callback registration
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-
             @Override
             public void onSuccess(LoginResult loginResult) {
-
-
-                // Request facebook info
-                GraphRequest request = GraphRequest.newMeRequest(
-                        accessToken,
-                        new GraphRequest.GraphJSONObjectCallback() {
-                            @Override
-                            public void onCompleted(
-                                    JSONObject object,
-                                    GraphResponse response) {
-                                try {
-                                    User user = new User();
-                                    user.setFacebookId(object.getString("id"));
-                                    user.setFirstName(object.getString("first_name"));
-                                    user.setFullName(object.getString("name"));
-                                    user.setEmail(object.getString("email"));
-                                    user.setLocale(object.getString("locale"));
-                                    user.setTimezone(object.getInt("timezone"));
-                                    setUpUser(user);
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        });
-                Bundle parameters = new Bundle();
-                parameters.putString("fields", "id,name,email, first_name, locale, timezone");
-                request.setParameters(parameters);
-                request.executeAsync();
+                accessToken = mApplication.getFbAccessToken();
+                getUserFromFb();
             }
 
             @Override
@@ -124,22 +97,51 @@ public class LoginActivity extends FragmentActivity {
         startActivity(intent);
     }
 
+    private void getUserFromFb(){
+        // Request facebook info
+        GraphRequest request = GraphRequest.newMeRequest(
+                accessToken,
+                new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(
+                            JSONObject object,
+                            GraphResponse response) {
+                        try {
+                            User user = new User();
+                            user.setFacebookId(object.getString("id"));
+                            user.setFirstName(object.getString("first_name"));
+                            user.setFullName(object.getString("name"));
+                            user.setEmail(object.getString("email"));
+                            user.setLocale(object.getString("locale"));
+                            user.setTimezone(object.getInt("timezone"));
+                            setUpUser(user);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        Bundle parameters = new Bundle();
+        parameters.putString("fields", "id,name,email, first_name, locale, timezone");
+        request.setParameters(parameters);
+        request.executeAsync();
+    }
+
     private void setUpUser(final User user) {
         mosesApi.getUser(user.getFacebookId(), new Callback<List<User>>() {
             @Override
             public void success(List<User> users, Response response) {
-                if (users.size() == 0) {
+                if(users.size() == 0){
                     createUser(user);
                 } else {
                     mApplication.setUser(users.get(0));
+                    // Switch screen
+                    startMainActivity();
                 }
-                // Switch screen
-                startMainActivity();
             }
 
             @Override
             public void failure(RetrofitError error) {
-
+                error.getBody();
             }
         });
     }
@@ -150,6 +152,7 @@ public class LoginActivity extends FragmentActivity {
             @Override
             public void success(User user, Response response) {
                 mApplication.setUser(user);
+                startMainActivity();
             }
 
             @Override
